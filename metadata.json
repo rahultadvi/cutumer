@@ -1,0 +1,7 @@
+{
+  "name": "Royal Glow Salon",
+  "description": "A premium luxury salon experience offering haircuts, facials, makeup, and spa treatments with a modern touch.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
