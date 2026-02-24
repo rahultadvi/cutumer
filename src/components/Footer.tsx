@@ -19,7 +19,7 @@ const Footer: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
             {[
-              { icon: MapPin, title: 'Our Location', content: 'Touch & Glow,\nAhmedabad' },
+              { icon: MapPin, title: 'Our Location', content: 'Touch and Magic,\nAhmedabad' },
               { icon: Phone, title: 'Get in Touch', content: 'Phone: +91 99135 46386\nEmail: tochandglow@gmail.com' },
               { icon: Clock, title: 'Working Hours', content: 'Mon-Sat: 10:00 AM – 9:00 PM\nSunday: 10:00 PM – 9:00 PM' }
             ].map((item, i) => (
@@ -47,7 +47,7 @@ const Footer: React.FC = () => {
                 </div>
                 <div className="flex flex-col">
                   <span className="text-2xl font-black tracking-tighter uppercase leading-none">
-                    Touch & Glow
+                    Touch and Magic
                   </span>
                   <span className="text-[10px] font-bold tracking-[0.3em] uppercase text-luxury-gold">
                     Family Salon

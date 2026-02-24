@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
+import axios from 'axios'; 
 import { 
   MapPin, 
   Phone, 
@@ -24,12 +25,37 @@ const Contact: React.FC = () => {
     message: ''
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log('Form submitted:', formData);
-    alert('Thank you! Your appointment request has been sent.');
-  };
+  // const handleSubmit = (e: React.FormEvent) => {
+  //   e.preventDefault();
+  //   console.log('Form submitted:', formData);
+  //   alert('Thank you! Your appointment request has been sent.');
+  // };
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
 
+  try {
+    const res = await axios.post(
+      "http://localhost:4000/api/appointments",
+      formData
+    );
+
+    if (res.status === 200 || res.status === 201) {
+      alert("✅ Appointment booked successfully");
+
+      setFormData({
+        name: "",
+        phone: "",
+        service: "",
+        date: "",
+        time: "",
+        message: "",
+      });
+    }
+  } catch (err) {
+    console.log(err);
+    alert("❌ Booking failed");
+  }
+};
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -123,19 +149,20 @@ const Contact: React.FC = () => {
             </motion.div>
 
             <motion.div variants={itemVariants} className="space-y-4">
-              <label className="text-gray-500 font-bold text-sm ml-2">Select the service</label>
-              <select 
-                required
-                className="w-full px-8 py-5 bg-white border-2 border-transparent rounded-2xl focus:border-black outline-none transition-all font-medium text-lg shadow-sm appearance-none"
-                value={formData.service}
-                onChange={(e) => setFormData({...formData, service: e.target.value})}
-              >
-                <option value="">Select Service</option>
-                <option value="haircut">Hair Cut</option>
-                <option value="beard">Beard Set</option>
-                <option value="facial">Facial</option>
-                <option value="spa">Spa</option>
-              </select>
+              <label className="text-gray-500 font-bold text-sm ml-2">
+  Select the service
+</label>
+
+<input
+  type="text"
+  required
+  placeholder="Enter service (Haircut, Beard, Facial...)"
+  className="w-full px-8 py-5 bg-white border-2 border-transparent rounded-2xl focus:border-black outline-none transition-all font-medium text-lg shadow-sm"
+  value={formData.service}
+  onChange={(e) =>
+    setFormData({ ...formData, service: e.target.value })
+  }
+/>
             </motion.div>
 
             <motion.div variants={itemVariants} className="space-y-4">
@@ -206,17 +233,17 @@ const Contact: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {[
               {
-                title: 'Touch & Glow - Branch 1',
+                title: 'Touch and Magic - Branch 1',
                 address: 'Regency lane Gate 3, Amber Tower, Sarkhej Rd, near Gulzar park, Juhapura, Ahmedabad, Gujarat 380055',
                 mapUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3672.686445470356!2d72.51860887531304!3d23.00041287919313!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e9b282998a98d%3A0x6d6c7c379fdad8121!2sTouch%20and%20Glow%20family%20salon!5e0!3m2!1sen!2sin!4v1708670000000!5m2!1sen!2sin'
               },
               {
-                title: 'Touch & Glow - Branch 2',
+                title: 'Touch and Magic - Branch 2',
                 address: 'GF-18, Block-A, Seventh Heaven, opp. Al Burooj, Ahmedabad, Gujarat 380055',
                 mapUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3672.686445470356!2d72.51860887531304!3d23.00041287919313!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e9b282998a98d%3A0x6d6c7c379fdad8121!2sTouch%20and%20Glow%20family%20salon!5e0!3m2!1sen!2sin!4v1708670000000!5m2!1sen!2sin'
               },
               {
-                title: 'Touch & Glow - Branch 3',
+                title: 'Touch and Magic - Branch 3',
                 address: 'Shop no 06, ALIF APARTMENT, Sarkhej Makarba Rd, Makarba, Ahmedabad, Gujarat 382210',
                 mapUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3672.686445470356!2d72.51860887531304!3d23.00041287919313!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e9b282998a98d%3A0x6d6c7c379fdad8121!2sTouch%20and%20Glow%20family%20salon!5e0!3m2!1sen!2sin!4v1708670000000!5m2!1sen!2sin'
               }

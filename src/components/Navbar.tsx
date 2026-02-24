@@ -33,7 +33,7 @@ const Navbar: React.FC = () => {
               </div>
               <div className="flex flex-col">
                 <span className="text-xl font-bold text-white leading-none tracking-tight">
-                  Touch & Glow
+                  Touch and Magic
                 </span>
                 <span className="text-[10px] font-bold text-luxury-gold uppercase tracking-[0.2em] mt-1">
                   Family Salon

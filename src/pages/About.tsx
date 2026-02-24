@@ -170,13 +170,13 @@ const About: React.FC = () => {
               transition={{ duration: 0.8 }}
             >
               <span className="text-luxury-gold font-black tracking-[0.2em] uppercase text-[10px] mb-6 block border-l-2 border-luxury-gold pl-4">
-                ABOUT TOUCH & GLOW - UNISEX FAMILY SALON IN AHMEDABAD
+                ABOUT Touch and Magic - UNISEX FAMILY SALON IN AHMEDABAD
               </span>
               <h2 className="text-5xl md:text-7xl font-bold mb-10 leading-[0.9] tracking-tighter">
                 Where Technique <br /> Meets Taste
               </h2>
               <p className="text-gray-500 text-xl mb-12 leading-relaxed font-medium">
-                At <span className="text-black font-black">Touch & Glow</span>, we don't do guesswork. As a unisex family salon in Ahmedabad, we combine strong fundamentals with modern styling—so every cut sits better, every colour looks balanced, and every treatment is chosen for your hair's actual condition.
+                At <span className="text-black font-black">Touch and Magic</span>, we don't do guesswork. As a unisex family salon in Ahmedabad, we combine strong fundamentals with modern styling—so every cut sits better, every colour looks balanced, and every treatment is chosen for your hair's actual condition.
               </p>
               
               <div className="space-y-10 mb-16">

@@ -25,21 +25,21 @@ import { GoogleGenAI, ThinkingLevel } from "@google/genai";
 const HERO_SLIDES = [
   {
     id: 1,
-    subtitle: 'WELCOME TO TOUCH & GLOW',
+    subtitle: 'WELCOME TO Touch and Magic',
     title: "Touch of Gloss Waiting Lounge",
     description: 'Relax in our thoughtfully designed waiting space, where glossy interiors, calm vibes, and comfort set the tone for your perfect salon experience.',
     image: 'https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&q=80&w=1200',
   },
   {
     id: 2,
-    subtitle: 'WELCOME TO TOUCH & GLOW',
+    subtitle: 'WELCOME TO TOUCH AND MAGIC',
     title: "Men's Grooming Section",
     description: 'A dedicated space for boys and men, designed for precision haircuts, grooming, and a confident salon experience.',
     image: 'https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&q=80&w=1200',
   },
   {
     id: 3,
-    subtitle: 'WELCOME TO TOUCH & GLOW',
+    subtitle: 'WELCOME TO TOUCH AND MAGIC',
     title: "Kids' Fun Cut Zone",
     description: 'A cheerful space designed just for kids, where haircuts become fun rides in our car-style chairs—safe, playful, and stress-free.',
     image: 'https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&q=80&w=1200',
@@ -80,7 +80,7 @@ const Home: React.FC = () => {
         contents: query,
         config: {
           thinkingConfig: { thinkingLevel: ThinkingLevel.HIGH },
-          systemInstruction: "You are a beauty and wellness expert for Touch & Glow Family Salon. Answer complex queries about hair care, skin treatments, and salon services with deep reasoning and helpful advice."
+          systemInstruction: "You are a beauty and wellness expert for Touch and Magic Family Salon. Answer complex queries about hair care, skin treatments, and salon services with deep reasoning and helpful advice."
         }
       });
       setAiResponse(response.text || "I'm sorry, I couldn't process that request.");
@@ -296,7 +296,7 @@ const Home: React.FC = () => {
                 viewport={{ once: true }}
                 className="text-gray-400 font-bold tracking-[0.2em] uppercase text-xs mb-4 block"
               >
-                ABOUT TOUCH & GLOW
+                ABOUT Touch and Magic
               </motion.span>
               <motion.h2
                 initial={{ opacity: 0, y: 20 }}
@@ -308,7 +308,7 @@ const Home: React.FC = () => {
               </motion.h2>
               
               <p className="text-gray-400 text-lg mb-10 leading-relaxed">
-                <span className="text-white font-bold">Touch & Glow</span> is a unisex family salon in Ahmedabad built for consistent results—clean finishing, honest consultation, and services tailored to your hair type and routine. Whether you want a simple refresh or a complete transformation, our focus is comfort, hygiene, and a look you can maintain confidently.
+                <span className="text-white font-bold">Touch and Magic</span> is a unisex family salon in Ahmedabad built for consistent results—clean finishing, honest consultation, and services tailored to your hair type and routine. Whether you want a simple refresh or a complete transformation, our focus is comfort, hygiene, and a look you can maintain confidently.
               </p>
               
               <div className="space-y-8">
@@ -416,7 +416,7 @@ const Home: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 text-center">
           <span className="text-gray-500 font-bold tracking-[0.2em] uppercase text-xs mb-4 block">PROFESSIONAL SERVICES</span>
           <h2 className="text-4xl md:text-6xl font-serif font-bold mb-8">We are Expert in</h2>
-          <p className="text-gray-600 max-w-4xl mx-auto mb-20">At Touch & Glow, a unisex family salon in Ahmedabad, we keep it simple: great technique, clean finishing, and results that suit your face shape, hair texture, and daily routine.</p>
+          <p className="text-gray-600 max-w-4xl mx-auto mb-20">At Touch and Magic, a unisex family salon in Ahmedabad, we keep it simple: great technique, clean finishing, and results that suit your face shape, hair texture, and daily routine.</p>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {[

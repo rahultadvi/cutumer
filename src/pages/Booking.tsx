@@ -28,7 +28,7 @@ const Booking: React.FC = () => {
     
     // WhatsApp Logic
     const phoneNumber = '919913546386';
-    const message = `Hello Touch & Glow Salon, I want to book ${formData.service} on ${formData.date} at ${formData.time}. My name is ${formData.name}, phone ${formData.phone}`;
+    const message = `Hello Touch and Magic Salon, I want to book ${formData.service} on ${formData.date} at ${formData.time}. My name is ${formData.name}, phone ${formData.phone}`;
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     
     setIsSubmitted(true);
