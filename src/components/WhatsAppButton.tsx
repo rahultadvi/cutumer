@@ -13,7 +13,7 @@ const FloatingButtons: React.FC = () => {
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
 const handleCall = async () => {
   try {
-    await axios.post("http://localhost:4000/api/call", {
+    await axios.post("https://cutumer.onrender.com/api/call", {
       phone: phoneNumber,
     });
 

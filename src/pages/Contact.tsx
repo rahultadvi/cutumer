@@ -35,7 +35,7 @@ const handleSubmit = async (e: React.FormEvent) => {
 
   try {
     const res = await axios.post(
-      "http://localhost:4000/api/appointments",
+      "https://cutumer.onrender.com/api/appointments",
       formData
     );
 
