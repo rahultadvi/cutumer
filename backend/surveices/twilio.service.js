@@ -14,7 +14,7 @@ const client = twilio(
 
 export const makeCall = async (phone) => {
   const call = await client.calls.create({
-    url: "https://thiocyanic-rosendo-wuthering.ngrok-free.dev/twilio/voice", 
+    url: "https://cutumer.onrender.com/twilio/voice", 
     to: phone,
     from: process.env.TWILIO_PHONE,
   });
