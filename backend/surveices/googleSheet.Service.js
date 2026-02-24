@@ -3,11 +3,14 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
+/*
+  👉 Render env me GOOGLE_SERVICE_ACCOUNT me pura JSON hai
+  👉 Isliye JSON parse karna hai
+*/
+const creds = JSON.parse(process.env.GOOGLE_SERVICE_ACCOUNT);
+
 const auth = new google.auth.GoogleAuth({
-  credentials: {
-    client_email: process.env.GOOGLE_CLIENT_EMAIL,
-    private_key: process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, "\n"),
-  },
+  credentials: creds,
   scopes: ["https://www.googleapis.com/auth/spreadsheets"],
 });
 
@@ -23,12 +26,18 @@ export const saveToGoogleSheet = async (data) => {
     valueInputOption: "USER_ENTERED",
     resource: {
       values: [
-        [data.name, data.phone, data.service, data.date, data.time, data.message],
+        [
+          data.name,
+          data.phone,
+          data.service,
+          data.date,
+          data.time,
+          data.message,
+        ],
       ],
     },
   });
 };
-
 
 
 
