@@ -236,23 +236,23 @@ const handleSubmit = async (e: React.FormEvent) => {
   {
     title: 'Touch and Magic - Branch 1',
     address:
-      'Regency lane Gate 3, Amber Tower, Sarkhej Rd, Juhapura, Gujarat 380055',
+      'Shop No 12, Royal Plaza, Green Park Road, City Center, Gujarat 380001',
     mapUrl:
-      'https://www.google.com/maps?q=Regency+lane+Gate+3+Amber+Tower+Sarkhej+Road&output=embed',
+      'https://www.google.com/maps?q=Royal+Plaza+Green+Park+Road&output=embed',
   },
   {
     title: 'Touch and Magic - Branch 2',
     address:
-      'GF-18, Block-A, Seventh Heaven, Sarkhej Road, Makarba, Gujarat 380051',
+      'GF-05, Sunrise Complex, Lake View Street, Downtown Area, Gujarat 380002',
     mapUrl:
-      'https://www.google.com/maps?q=Seventh+Heaven+Makarba&output=embed',
+      'https://www.google.com/maps?q=Sunrise+Complex+Lake+View+Street&output=embed',
   },
   {
     title: 'Touch and Magic - Branch 3',
     address:
-      'Shop No 06, Alif Apartment, Sarkhej Makarba Rd, Makarba, Gujarat 382210',
+      'Unit 21, Crystal Mall, Riverside Avenue, Business District, Gujarat 380003',
     mapUrl:
-      'https://www.google.com/maps?q=Sarkhej+Makarba+Road&output=embed',
+      'https://www.google.com/maps?q=Crystal+Mall+Riverside+Avenue&output=embed',
   },
 ].map((branch, i) => (
               <motion.div 
