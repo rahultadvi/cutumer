@@ -22,11 +22,10 @@ app.use("/twilio",wabhoke);
 // ✅ ⭐ React build serve
 const __dirname = path.resolve();
 
-// 👇 IMPORTANT — build folder name check karo
 app.use(express.static(path.join(__dirname, "dist")));
 
-// ⭐ React Router fallback (MOST IMPORTANT)
-app.get("*", (req, res) => {
+// ⭐ React Router fallback
+app.get(/.*/, (req, res) => {
   res.sendFile(path.join(__dirname, "dist", "index.html"));
 });
 
