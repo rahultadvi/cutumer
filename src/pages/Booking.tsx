@@ -19,6 +19,7 @@ const ContactPage: React.FC = () => {
   const [searchParams] = useSearchParams();
   const [mounted, setMounted] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [agreed, setAgreed] = useState(false); // State for terms agreement
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -38,6 +39,7 @@ const ContactPage: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (!agreed) return; // Extra safety
 
     const phoneNumber = '919913546386';
     const message = `Hello Touch & Glow Salon, I want to book ${
@@ -309,27 +311,37 @@ const ContactPage: React.FC = () => {
                   />
                 </div>
 
-                {/* Optional checkbox (口 from image) */}
+                {/* Functional checkbox for terms */}
                 <div className="flex items-center space-x-3">
-                  <div className="w-5 h-5 border border-white/20 rounded bg-white/5 flex items-center justify-center cursor-pointer hover:border-luxury-gold transition-colors">
-                    {/* Could add a checkmark when checked, but leaving as visual placeholder */}
-                  </div>
-                  <span className="text-sm text-gray-400">
+                  <input
+                    type="checkbox"
+                    id="terms"
+                    checked={agreed}
+                    onChange={(e) => setAgreed(e.target.checked)}
+                    className="w-5 h-5 rounded border-white/20 bg-white/5 text-luxury-gold focus:ring-luxury-gold focus:ring-1 transition-all cursor-pointer"
+                  />
+                  <label htmlFor="terms" className="text-sm text-gray-400 cursor-pointer">
                     I agree to the terms and conditions
-                  </span>
+                  </label>
                 </div>
 
-                {/* Submit Button */}
+                {/* Submit Button - disabled if not agreed */}
                 <button
                   type="submit"
-                  className="w-full bg-luxury-gold text-luxury-black font-semibold py-4 rounded-xl flex items-center justify-center space-x-3 hover:bg-opacity-90 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-luxury-gold/20"
+                  disabled={!agreed}
+                  className={`w-full font-semibold py-4 rounded-xl flex items-center justify-center space-x-3 transition-all duration-300 shadow-lg ${
+                    agreed
+                      ? 'bg-luxury-gold text-luxury-black hover:bg-opacity-90 hover:scale-[1.02] active:scale-[0.98] hover:shadow-xl hover:shadow-luxury-gold/20'
+                      : 'bg-gray-600 text-gray-300 cursor-not-allowed opacity-60'
+                  }`}
                 >
                   <MessageCircle className="w-5 h-5" />
                   <span>Book Appointment</span>
                 </button>
 
+                {/* Payment note */}
                 <p className="text-center text-gray-500 text-xs uppercase tracking-widest">
-                  No payment required now. Pay at the salon after your service.
+                  NO PAYMENT REQUIRED NOW. PAY AT THE SALON AFTER YOUR SERVICE.
                 </p>
               </form>
             </div>
@@ -392,7 +404,7 @@ const ContactPage: React.FC = () => {
         </div>
       </div>
 
-      {/* ========== FOOTER ========== */}
+      {/* Footer (unchanged) */}
       <footer
         className={`w-full bg-luxury-black/95 border-t border-white/10 py-12 transition-all duration-700 delay-500 ${
           mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
@@ -400,7 +412,6 @@ const ContactPage: React.FC = () => {
       >
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {/* Our Location */}
             <div>
               <h4 className="text-lg font-serif text-white mb-4">Our Location</h4>
               <p className="text-gray-400 text-sm leading-relaxed">
@@ -413,8 +424,6 @@ const ContactPage: React.FC = () => {
                 Juhapura, Ahmedabad, Gujarat 380055
               </p>
             </div>
-
-            {/* Get in Touch */}
             <div>
               <h4 className="text-lg font-serif text-white mb-4">Get in Touch</h4>
               <p className="text-gray-400 text-sm flex items-center mb-2">
@@ -426,8 +435,6 @@ const ContactPage: React.FC = () => {
                 tochandglow@gmail.com
               </p>
             </div>
-
-            {/* Working Hours */}
             <div>
               <h4 className="text-lg font-serif text-white mb-4">Working Hours</h4>
               <div className="space-y-2 text-gray-400 text-sm">
@@ -441,8 +448,6 @@ const ContactPage: React.FC = () => {
                 </div>
               </div>
             </div>
-
-            {/* Brand & Navigation */}
             <div>
               <h4 className="text-lg font-serif text-white mb-4">
                 Touch & Glow <span className="text-xs font-light block text-luxury-gold">FAMILY SALON</span>
@@ -461,8 +466,6 @@ const ContactPage: React.FC = () => {
               </ul>
             </div>
           </div>
-
-          {/* Bottom credit */}
           <div className="mt-12 pt-8 border-t border-white/10 text-center text-gray-500 text-sm">
             Designed & Developed By Softgenix Infotech
           </div>
