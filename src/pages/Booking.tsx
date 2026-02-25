@@ -42,11 +42,9 @@ const ContactPage: React.FC = () => {
     if (!agreed) return; // Extra safety
 
     const phoneNumber = '919913546386';
-    const message = `Hello Touch & Glow Salon, I want to book ${
-      formData.service
-    } on ${formData.date} at ${formData.time}. My name is ${
-      formData.name
-    }, phone ${formData.phone}. Message: ${formData.message}`;
+    const message = `Hello Touch & Glow Salon, I want to book ${formData.service
+      } on ${formData.date} at ${formData.time}. My name is ${formData.name
+      }, phone ${formData.phone}. Message: ${formData.message}`;
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
       message
     )}`;
@@ -62,9 +60,8 @@ const ContactPage: React.FC = () => {
     return (
       <div className="min-h-[70vh] flex items-center justify-center px-4">
         <div
-          className={`glass-card p-12 text-center max-w-md w-full transition-all duration-700 ${
-            mounted ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
-          }`}
+          className={`glass-card p-12 text-center max-w-md w-full transition-all duration-700 ${mounted ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+            }`}
         >
           <div className="w-20 h-20 bg-luxury-gold/20 rounded-full flex items-center justify-center mx-auto mb-8">
             <CheckCircle2 className="w-12 h-12 text-luxury-gold" />
@@ -104,11 +101,10 @@ const ContactPage: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-12">
             {/* Left: Contact details & hours */}
             <div
-              className={`space-y-8 transition-all duration-700 delay-100 ${
-                mounted
+              className={`space-y-8 transition-all duration-700 delay-100 ${mounted
                   ? 'opacity-100 translate-y-0'
                   : 'opacity-0 translate-y-4'
-              }`}
+                }`}
             >
               {/* Address card */}
               <div className="glass-card p-8 hover:shadow-lg hover:shadow-luxury-gold/10 transition-shadow">
@@ -166,11 +162,10 @@ const ContactPage: React.FC = () => {
 
             {/* Right: Booking Form */}
             <div
-              className={`glass-card p-8 md:p-10 transition-all duration-700 delay-200 ${
-                mounted
+              className={`glass-card p-8 md:p-10 transition-all duration-700 delay-200 ${mounted
                   ? 'opacity-100 translate-y-0'
                   : 'opacity-0 translate-y-4'
-              }`}
+                }`}
             >
               <form onSubmit={handleSubmit} className="space-y-6">
                 {/* Name */}
@@ -326,25 +321,24 @@ const ContactPage: React.FC = () => {
                 </div>
 
                 {/* Submit Button - disabled if not agreed */}
-          {/* Submit Button - production level with full animations */}
-<button
-  type="submit"
-  disabled={!agreed}
-  className={`
+                {/* Submit Button - production level with full animations */}
+                <button
+                  type="submit"
+                  disabled={!agreed}
+                  className={`
     w-full font-semibold py-4 rounded-xl
     flex items-center justify-center space-x-3
     transition-all duration-300 ease-out
     shadow-lg focus:outline-none focus:ring-2 focus:ring-luxury-gold focus:ring-offset-2 focus:ring-offset-luxury-black
-    ${
-      agreed
-        ? 'bg-luxury-gold text-luxury-black hover:bg-opacity-90 hover:scale-[1.02] active:scale-[0.98] hover:shadow-xl hover:shadow-luxury-gold/30 hover:border-luxury-gold/50 border border-transparent'
-        : 'bg-gray-600 text-gray-300 cursor-not-allowed opacity-60 border border-gray-500/30'
-    }
+    ${agreed
+                      ? 'bg-luxury-gold text-luxury-black hover:bg-opacity-90 hover:scale-[1.02] active:scale-[0.98] hover:shadow-xl hover:shadow-luxury-gold/30 hover:border-luxury-gold/50 border border-transparent'
+                      : 'bg-gray-600 text-gray-300 cursor-not-allowed opacity-60 border border-gray-500/30'
+                    }
   `}
->
-  <MessageCircle className="w-5 h-5 transition-transform group-hover:rotate-12" />
-  <span>Book Appointment</span>
-</button>
+                >
+                  <MessageCircle className="w-5 h-5 transition-transform group-hover:rotate-12" />
+                  <span>Book Appointment</span>
+                </button>
 
                 {/* Payment note */}
                 <p className="text-center text-gray-500 text-xs uppercase tracking-widest">
@@ -385,11 +379,10 @@ const ContactPage: React.FC = () => {
               ].map((branch, idx) => (
                 <div
                   key={idx}
-                  className={`glass-card p-6 hover:scale-105 hover:shadow-2xl transition-all duration-500 ${
-                    mounted
+                  className={`glass-card p-6 hover:scale-105 hover:shadow-2xl transition-all duration-500 ${mounted
                       ? 'opacity-100 translate-y-0'
                       : 'opacity-0 translate-y-4'
-                  }`}
+                    }`}
                   style={{ transitionDelay: `${idx * 100 + 300}ms` }}
                 >
                   <h3 className="text-xl font-serif text-white mb-2">
@@ -413,9 +406,8 @@ const ContactPage: React.FC = () => {
 
       {/* Footer (unchanged) */}
       <footer
-        className={`w-full bg-luxury-black/95 border-t border-white/10 py-12 transition-all duration-700 delay-500 ${
-          mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-        }`}
+        className={`w-full bg-luxury-black/95 border-t border-white/10 py-12 transition-all duration-700 delay-500 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+          }`}
       >
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">

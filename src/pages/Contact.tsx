@@ -72,6 +72,7 @@ const handleSubmit = async (e: React.FormEvent) => {
       transition: { duration: 0.5 }
     }
   };
+  
 
   return (
     <div className="min-h-screen bg-white text-black selection:bg-luxury-gold selection:text-black">

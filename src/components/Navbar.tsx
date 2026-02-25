@@ -56,7 +56,7 @@ const Navbar: React.FC = () => {
                 {link.name}
               </Link>
             ))}
-            <Link to="/booking" className="btn-gold !py-2 !px-6 text-sm">
+            <Link to="/contact" className="btn-gold !py-2 !px-6 text-sm">
               Book Now
             </Link>
           </div>
@@ -98,7 +98,7 @@ const Navbar: React.FC = () => {
               ))}
               <div className="pt-4">
                 <Link
-                  to="/booking"
+                  to="/contact"
                   onClick={() => setIsOpen(false)}
                   className="block w-full text-center btn-gold"
                 >

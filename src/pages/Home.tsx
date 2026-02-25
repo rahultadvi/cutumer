@@ -124,7 +124,7 @@ const Home: React.FC = () => {
                   </p>
                   
                   <div className="flex flex-wrap gap-4">
-                    <Link to="/booking" className="btn-gold !px-10 !py-4">
+                    <Link to="/contact" className="btn-gold !px-10 !py-4">
                       Book Now
                     </Link>
                     <Link to="/contact" className="btn-outline-gold !px-10 !py-4">
