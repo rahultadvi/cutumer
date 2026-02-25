@@ -233,22 +233,28 @@ const handleSubmit = async (e: React.FormEvent) => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {[
-              {
-                title: 'Touch and Magic - Branch 1',
-                address: 'Regency lane Gate 3, Amber Tower, Sarkhej Rd, near Gulzar park, Juhapura, Ahmedabad, Gujarat 380055',
-                mapUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3672.686445470356!2d72.51860887531304!3d23.00041287919313!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e9b282998a98d%3A0x6d6c7c379fdad8121!2sTouch%20and%20Glow%20family%20salon!5e0!3m2!1sen!2sin!4v1708670000000!5m2!1sen!2sin'
-              },
-              {
-                title: 'Touch and Magic - Branch 2',
-                address: 'GF-18, Block-A, Seventh Heaven, opp. Al Burooj, Ahmedabad, Gujarat 380055',
-                mapUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3672.686445470356!2d72.51860887531304!3d23.00041287919313!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e9b282998a98d%3A0x6d6c7c379fdad8121!2sTouch%20and%20Glow%20family%20salon!5e0!3m2!1sen!2sin!4v1708670000000!5m2!1sen!2sin'
-              },
-              {
-                title: 'Touch and Magic - Branch 3',
-                address: 'Shop no 06, ALIF APARTMENT, Sarkhej Makarba Rd, Makarba, Ahmedabad, Gujarat 382210',
-                mapUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3672.686445470356!2d72.51860887531304!3d23.00041287919313!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e9b282998a98d%3A0x6d6c7c379fdad8121!2sTouch%20and%20Glow%20family%20salon!5e0!3m2!1sen!2sin!4v1708670000000!5m2!1sen!2sin'
-              }
-            ].map((branch, i) => (
+  {
+    title: 'Touch and Magic - Branch 1',
+    address:
+      'Regency lane Gate 3, Amber Tower, Sarkhej Rd, Juhapura, Gujarat 380055',
+    mapUrl:
+      'https://www.google.com/maps?q=Regency+lane+Gate+3+Amber+Tower+Sarkhej+Road&output=embed',
+  },
+  {
+    title: 'Touch and Magic - Branch 2',
+    address:
+      'GF-18, Block-A, Seventh Heaven, Sarkhej Road, Makarba, Gujarat 380051',
+    mapUrl:
+      'https://www.google.com/maps?q=Seventh+Heaven+Makarba&output=embed',
+  },
+  {
+    title: 'Touch and Magic - Branch 3',
+    address:
+      'Shop No 06, Alif Apartment, Sarkhej Makarba Rd, Makarba, Gujarat 382210',
+    mapUrl:
+      'https://www.google.com/maps?q=Sarkhej+Makarba+Road&output=embed',
+  },
+].map((branch, i) => (
               <motion.div 
                 key={i}
                 initial={{ opacity: 0, y: 20 }}
