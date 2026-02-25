@@ -308,7 +308,7 @@ const Home: React.FC = () => {
               </motion.h2>
               
               <p className="text-gray-400 text-lg mb-10 leading-relaxed">
-                <span className="text-white font-bold">Touch and Magic</span> is a unisex family salon in Ahmedabad built for consistent results—clean finishing, honest consultation, and services tailored to your hair type and routine. Whether you want a simple refresh or a complete transformation, our focus is comfort, hygiene, and a look you can maintain confidently.
+                <span className="text-white font-bold">Touch and Magic</span> is a unisex family salon in Downtown Area built for consistent results—clean finishing, honest consultation, and services tailored to your hair type and routine. Whether you want a simple refresh or a complete transformation, our focus is comfort, hygiene, and a look you can maintain confidently.
               </p>
               
               <div className="space-y-8">
@@ -416,7 +416,7 @@ const Home: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 text-center">
           <span className="text-gray-500 font-bold tracking-[0.2em] uppercase text-xs mb-4 block">PROFESSIONAL SERVICES</span>
           <h2 className="text-4xl md:text-6xl font-serif font-bold mb-8">We are Expert in</h2>
-          <p className="text-gray-600 max-w-4xl mx-auto mb-20">At Touch and Magic, a unisex family salon in Ahmedabad, we keep it simple: great technique, clean finishing, and results that suit your face shape, hair texture, and daily routine.</p>
+          <p className="text-gray-600 max-w-4xl mx-auto mb-20">At Touch and Magic, a unisex family salon in Downtown Area, we keep it simple: great technique, clean finishing, and results that suit your face shape, hair texture, and daily routine.</p>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {[

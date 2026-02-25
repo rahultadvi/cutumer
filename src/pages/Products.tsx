@@ -90,7 +90,7 @@ const Products: React.FC = () => {
     {
       name: 'Rahul Sharma',
       rating: 5,
-      text: 'Best salon in Ahmedabad for family. The kids zone is amazing and my son loved his haircut experience.',
+      text: 'Best salon in Downtown Area for family. The kids zone is amazing and my son loved his haircut experience.',
       img: 'https://i.pravatar.cc/150?u=rahul'
     }
   ];

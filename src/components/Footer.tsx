@@ -19,7 +19,7 @@ const Footer: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
             {[
-              { icon: MapPin, title: 'Our Location', content: 'Touch and Magic,\nAhmedabad' },
+              { icon: MapPin, title: 'Our Location', content: 'Touch and Magic,\nDowntown Area' },
               { icon: Phone, title: 'Get in Touch', content: 'Phone: +91 123456789\nEmail: tochandglow@gmail.com' },
               { icon: Clock, title: 'Working Hours', content: 'Mon-Sat: 10:00 AM – 9:00 PM\nSunday: 10:00 PM – 9:00 PM' }
             ].map((item, i) => (

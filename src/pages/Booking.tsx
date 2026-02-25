@@ -117,7 +117,7 @@ const ContactPage: React.FC = () => {
                   <br />
                   near Gulzar park, Juhapura,
                   <br />
-                  Ahmedabad, Gujarat 380055
+                  Downtown Area, Gujarat 380055
                 </p>
               </div>
 
@@ -358,21 +358,21 @@ const ContactPage: React.FC = () => {
                 {
                   name: 'Touch & Glow - Branch 1',
                   address:
-                    'Regency lane Gate 3, Amber Tower, Sarkhej Rd, near Gulzar park, Juhapura, Ahmedabad, Gujarat 380055',
+                    'Regency lane Gate 3, Amber Tower, Sarkhej Rd, near Gulzar park, Juhapura, , Gujarat 380055',
                   phone: '+91 99135 46386',
                   email: 'branch1@touchandglow.com',
                 },
                 {
                   name: 'Touch & Glow - Branch 2',
                   address:
-                    'GF-18, Block-A, Seventh Heaven, opp. Al Burooj, Ahmedabad, Gujarat 380055',
+                    'GF-18, Block-A, Seventh Heaven, opp. Al Burooj,Downtown Area, Gujarat 380055',
                   phone: '+91 99135 46386',
                   email: 'branch2@touchandglow.com',
                 },
                 {
                   name: 'Touch & Glow - Branch 3',
                   address:
-                    'Shop no 06, ALIF APARTMENT, Sarkhej Makarba Rd, Makarba, Ahmedabad, Gujarat 382210',
+                    'Shop no 06, ALIF APARTMENT, Sarkhej Makarba Rd, Makarba, Downtown Area, Gujarat 382210',
                   phone: '+91 99135 46386',
                   email: 'branch3@touchandglow.com',
                 },
@@ -414,13 +414,13 @@ const ContactPage: React.FC = () => {
             <div>
               <h4 className="text-lg font-serif text-white mb-4">Our Location</h4>
               <p className="text-gray-400 text-sm leading-relaxed">
-                Touch & Glow, Ahmedabad
+                Touch & Glow, Downtown Area
                 <br />
                 Regency lane Gate 3, Amber Tower,
                 <br />
                 Sarkhej Rd, near Gulzar park,
                 <br />
-                Juhapura, Ahmedabad, Gujarat 380055
+                Juhapura, Downtown Area, Gujarat 380055
               </p>
             </div>
             <div>
