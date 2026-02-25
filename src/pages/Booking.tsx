@@ -1,127 +1,213 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'motion/react';
 import { useSearchParams } from 'react-router-dom';
-import { Calendar, Clock, User, Phone, Scissors, CheckCircle2, MessageCircle } from 'lucide-react';
+import {
+  Calendar,
+  Clock,
+  User,
+  Phone,
+  Scissors,
+  CheckCircle2,
+  MessageCircle,
+  MapPin,
+  Mail,
+  Clock3,
+} from 'lucide-react';
 import SectionHeading from '../components/SectionHeading';
 import { SERVICES } from '../constants';
 
-const Booking: React.FC = () => {
+const ContactPage: React.FC = () => {
   const [searchParams] = useSearchParams();
+  const [mounted, setMounted] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
     service: searchParams.get('service') || '',
     date: '',
     time: '',
+    message: '',
   });
-  const [isSubmitted, setIsSubmitted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     const service = searchParams.get('service');
     if (service) {
-      setFormData(prev => ({ ...prev, service }));
+      setFormData((prev) => ({ ...prev, service }));
     }
   }, [searchParams]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // WhatsApp Logic
+
     const phoneNumber = '919913546386';
-    const message = `Hello Touch and Magic Salon, I want to book ${formData.service} on ${formData.date} at ${formData.time}. My name is ${formData.name}, phone ${formData.phone}`;
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-    
+    const message = `Hello Touch & Glow Salon, I want to book ${
+      formData.service
+    } on ${formData.date} at ${formData.time}. My name is ${
+      formData.name
+    }, phone ${formData.phone}. Message: ${formData.message}`;
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
+      message
+    )}`;
+
     setIsSubmitted(true);
-    
-    // Redirect after a short delay to show success state
     setTimeout(() => {
       window.open(whatsappUrl, '_blank');
     }, 2000);
   };
 
+  // Loading / success screen
   if (isSubmitted) {
     return (
       <div className="min-h-[70vh] flex items-center justify-center px-4">
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          className="glass-card p-12 text-center max-w-md w-full"
+        <div
+          className={`glass-card p-12 text-center max-w-md w-full transition-all duration-700 ${
+            mounted ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+          }`}
         >
           <div className="w-20 h-20 bg-luxury-gold/20 rounded-full flex items-center justify-center mx-auto mb-8">
             <CheckCircle2 className="w-12 h-12 text-luxury-gold" />
           </div>
-          <h2 className="text-3xl font-serif font-bold text-white mb-4">Booking Initiated!</h2>
+          <h2 className="text-3xl font-serif font-bold text-white mb-4">
+            Booking Initiated!
+          </h2>
           <p className="text-gray-400 mb-8">
-            We are redirecting you to WhatsApp to confirm your appointment with our team.
+            We are redirecting you to WhatsApp to confirm your appointment with
+            our team.
           </p>
           <div className="flex items-center justify-center space-x-2 text-luxury-gold">
-            <motion.div
-              animate={{ scale: [1, 1.2, 1] }}
-              transition={{ repeat: Infinity, duration: 1 }}
-              className="w-2 h-2 bg-current rounded-full"
-            />
-            <motion.div
-              animate={{ scale: [1, 1.2, 1] }}
-              transition={{ repeat: Infinity, duration: 1, delay: 0.2 }}
-              className="w-2 h-2 bg-current rounded-full"
-            />
-            <motion.div
-              animate={{ scale: [1, 1.2, 1] }}
-              transition={{ repeat: Infinity, duration: 1, delay: 0.4 }}
-              className="w-2 h-2 bg-current rounded-full"
-            />
+            <div className="w-2 h-2 bg-current rounded-full animate-pulse" />
+            <div className="w-2 h-2 bg-current rounded-full animate-pulse animation-delay-200" />
+            <div className="w-2 h-2 bg-current rounded-full animate-pulse animation-delay-400" />
           </div>
-        </motion.div>
+        </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen py-20">
-      <div className="max-w-4xl mx-auto px-4">
-        <SectionHeading title="Reserve Your Glow" subtitle="Online Booking" />
+    <div className="min-h-screen py-20 bg-luxury-black">
+      <div className="max-w-7xl mx-auto px-4">
+        {/* Breadcrumb */}
+        <div className="flex items-center space-x-2 text-sm text-gray-400 mb-8">
+          <span>Home</span>
+          <span>/</span>
+          <span className="text-luxury-gold">Contact</span>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="glass-card p-8 md:p-12"
-        >
-          <form onSubmit={handleSubmit} className="space-y-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {/* Header */}
+        <SectionHeading title="Get In Touch With Us" subtitle="Contact" />
+
+        {/* Two column layout: Contact Info + Form */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-12">
+          {/* Left: Contact details & hours */}
+          <div
+            className={`space-y-8 transition-all duration-700 delay-100 ${
+              mounted
+                ? 'opacity-100 translate-y-0'
+                : 'opacity-0 translate-y-4'
+            }`}
+          >
+            {/* Address card */}
+            <div className="glass-card p-8 hover:shadow-lg hover:shadow-luxury-gold/10 transition-shadow">
+              <h3 className="text-xl font-serif text-white mb-4 flex items-center">
+                <MapPin className="w-5 h-5 text-luxury-gold mr-2" />
+                Address
+              </h3>
+              <p className="text-gray-400 leading-relaxed">
+                Regency lane Gate 3, Amber Tower, Sarkhej Rd,
+                <br />
+                near Gulzar park, Juhapura,
+                <br />
+                Ahmedabad, Gujarat 380055
+              </p>
+            </div>
+
+            {/* Phone & Email */}
+            <div className="glass-card p-8 hover:shadow-lg hover:shadow-luxury-gold/10 transition-shadow">
+              <div className="flex items-start space-x-6">
+                <div className="flex-1">
+                  <h3 className="text-xl font-serif text-white mb-2 flex items-center">
+                    <Phone className="w-5 h-5 text-luxury-gold mr-2" />
+                    Phone
+                  </h3>
+                  <p className="text-gray-400">+91 99135 46386</p>
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-xl font-serif text-white mb-2 flex items-center">
+                    <Mail className="w-5 h-5 text-luxury-gold mr-2" />
+                    Email
+                  </h3>
+                  <p className="text-gray-400">tochandglow@gmail.com</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Working Hours */}
+            <div className="glass-card p-8 hover:shadow-lg hover:shadow-luxury-gold/10 transition-shadow">
+              <h3 className="text-xl font-serif text-white mb-4 flex items-center">
+                <Clock3 className="w-5 h-5 text-luxury-gold mr-2" />
+                Working Hours
+              </h3>
+              <div className="space-y-2 text-gray-400">
+                <div className="flex justify-between">
+                  <span>Mon – Sat</span>
+                  <span>10:00 AM – 9:00 PM</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>Sunday</span>
+                  <span>10:00 AM – 9:00 PM</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Right: Booking Form */}
+          <div
+            className={`glass-card p-8 md:p-10 transition-all duration-700 delay-200 ${
+              mounted
+                ? 'opacity-100 translate-y-0'
+                : 'opacity-0 translate-y-4'
+            }`}
+          >
+            <form onSubmit={handleSubmit} className="space-y-6">
               {/* Name */}
-              <div className="space-y-3">
+              <div className="space-y-2">
                 <label className="flex items-center text-sm font-medium text-gray-400">
                   <User className="w-4 h-4 mr-2 text-luxury-gold" />
-                  Your Full Name
+                  Name
                 </label>
                 <input
-                  required
                   type="text"
+                  required
                   value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full bg-white/5 border border-white/10 rounded-xl py-4 px-5 text-white focus:outline-none focus:border-luxury-gold transition-colors"
-                  placeholder="Enter your name"
+                  onChange={(e) =>
+                    setFormData({ ...formData, name: e.target.value })
+                  }
+                  placeholder="Enter Name"
+                  className="w-full bg-white/5 border border-white/10 rounded-xl py-3 px-5 text-white placeholder-gray-500 focus:outline-none focus:border-luxury-gold focus:ring-1 focus:ring-luxury-gold transition-all hover:bg-white/10"
                 />
               </div>
 
               {/* Phone */}
-              <div className="space-y-3">
+              <div className="space-y-2">
                 <label className="flex items-center text-sm font-medium text-gray-400">
                   <Phone className="w-4 h-4 mr-2 text-luxury-gold" />
-                  Phone Number
+                  Phone
                 </label>
                 <input
-                  required
                   type="tel"
+                  required
                   value={formData.phone}
-                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                  className="w-full bg-white/5 border border-white/10 rounded-xl py-4 px-5 text-white focus:outline-none focus:border-luxury-gold transition-colors"
-                  placeholder="+1 (555) 000-0000"
+                  onChange={(e) =>
+                    setFormData({ ...formData, phone: e.target.value })
+                  }
+                  placeholder="Enter Phone Number"
+                  className="w-full bg-white/5 border border-white/10 rounded-xl py-3 px-5 text-white placeholder-gray-500 focus:outline-none focus:border-luxury-gold focus:ring-1 focus:ring-luxury-gold transition-all hover:bg-white/10"
                 />
               </div>
 
-              {/* Service Selection */}
-              <div className="space-y-3 md:col-span-2">
+              {/* Service */}
+              <div className="space-y-2">
                 <label className="flex items-center text-sm font-medium text-gray-400">
                   <Scissors className="w-4 h-4 mr-2 text-luxury-gold" />
                   Select Service
@@ -129,71 +215,182 @@ const Booking: React.FC = () => {
                 <select
                   required
                   value={formData.service}
-                  onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                  className="w-full bg-white/5 border border-white/10 rounded-xl py-4 px-5 text-white focus:outline-none focus:border-luxury-gold transition-colors appearance-none"
+                  onChange={(e) =>
+                    setFormData({ ...formData, service: e.target.value })
+                  }
+                  className="w-full bg-white/5 border border-white/10 rounded-xl py-3 px-5 text-white focus:outline-none focus:border-luxury-gold focus:ring-1 focus:ring-luxury-gold transition-all hover:bg-white/10 appearance-none"
                 >
-                  <option value="" disabled className="bg-luxury-black">Choose a service</option>
+                  <option value="" disabled className="bg-luxury-black">
+                    Select the service
+                  </option>
                   {SERVICES.map((s) => (
-                    <option key={s.id} value={s.name} className="bg-luxury-black">
+                    <option
+                      key={s.id}
+                      value={s.name}
+                      className="bg-luxury-black"
+                    >
                       {s.name} - {s.price}
                     </option>
                   ))}
                 </select>
               </div>
 
-              {/* Date */}
-              <div className="space-y-3">
+              {/* Date & Time */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <label className="flex items-center text-sm font-medium text-gray-400">
+                    <Calendar className="w-4 h-4 mr-2 text-luxury-gold" />
+                    Appointment Date
+                  </label>
+                  <input
+                    type="date"
+                    required
+                    min={new Date().toISOString().split('T')[0]}
+                    value={formData.date}
+                    onChange={(e) =>
+                      setFormData({ ...formData, date: e.target.value })
+                    }
+                    className="w-full bg-white/5 border border-white/10 rounded-xl py-3 px-5 text-white focus:outline-none focus:border-luxury-gold focus:ring-1 focus:ring-luxury-gold transition-all hover:bg-white/10 [color-scheme:dark]"
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <label className="flex items-center text-sm font-medium text-gray-400">
+                    <Clock className="w-4 h-4 mr-2 text-luxury-gold" />
+                    Time Slot
+                  </label>
+                  <select
+                    required
+                    value={formData.time}
+                    onChange={(e) =>
+                      setFormData({ ...formData, time: e.target.value })
+                    }
+                    className="w-full bg-white/5 border border-white/10 rounded-xl py-3 px-5 text-white focus:outline-none focus:border-luxury-gold focus:ring-1 focus:ring-luxury-gold transition-all hover:bg-white/10 appearance-none"
+                  >
+                    <option value="" disabled className="bg-luxury-black">
+                      Select Time Slot
+                    </option>
+                    {[
+                      '09:00 AM',
+                      '10:00 AM',
+                      '11:00 AM',
+                      '12:00 PM',
+                      '01:00 PM',
+                      '02:00 PM',
+                      '03:00 PM',
+                      '04:00 PM',
+                      '05:00 PM',
+                      '06:00 PM',
+                      '07:00 PM',
+                    ].map((t) => (
+                      <option key={t} value={t} className="bg-luxury-black">
+                        {t}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+
+              {/* Message */}
+              <div className="space-y-2">
                 <label className="flex items-center text-sm font-medium text-gray-400">
-                  <Calendar className="w-4 h-4 mr-2 text-luxury-gold" />
-                  Preferred Date
+                  <MessageCircle className="w-4 h-4 mr-2 text-luxury-gold" />
+                  Write a Message
                 </label>
-                <input
-                  required
-                  type="date"
-                  min={new Date().toISOString().split('T')[0]}
-                  value={formData.date}
-                  onChange={(e) => setFormData({ ...formData, date: e.target.value })}
-                  className="w-full bg-white/5 border border-white/10 rounded-xl py-4 px-5 text-white focus:outline-none focus:border-luxury-gold transition-colors [color-scheme:dark]"
+                <textarea
+                  rows={3}
+                  value={formData.message}
+                  onChange={(e) =>
+                    setFormData({ ...formData, message: e.target.value })
+                  }
+                  placeholder="Write a Message"
+                  className="w-full bg-white/5 border border-white/10 rounded-xl py-3 px-5 text-white placeholder-gray-500 focus:outline-none focus:border-luxury-gold focus:ring-1 focus:ring-luxury-gold transition-all hover:bg-white/10 resize-none"
                 />
               </div>
 
-              {/* Time */}
-              <div className="space-y-3">
-                <label className="flex items-center text-sm font-medium text-gray-400">
-                  <Clock className="w-4 h-4 mr-2 text-luxury-gold" />
-                  Preferred Time
-                </label>
-                <select
-                  required
-                  value={formData.time}
-                  onChange={(e) => setFormData({ ...formData, time: e.target.value })}
-                  className="w-full bg-white/5 border border-white/10 rounded-xl py-4 px-5 text-white focus:outline-none focus:border-luxury-gold transition-colors appearance-none"
-                >
-                  <option value="" disabled className="bg-luxury-black">Select time slot</option>
-                  {['09:00 AM', '10:00 AM', '11:00 AM', '12:00 PM', '01:00 PM', '02:00 PM', '03:00 PM', '04:00 PM', '05:00 PM', '06:00 PM', '07:00 PM'].map((t) => (
-                    <option key={t} value={t} className="bg-luxury-black">{t}</option>
-                  ))}
-                </select>
+              {/* Optional checkbox (口 from image) */}
+              <div className="flex items-center space-x-3">
+                <div className="w-5 h-5 border border-white/20 rounded bg-white/5 flex items-center justify-center cursor-pointer hover:border-luxury-gold transition-colors">
+                  {/* Could add a checkmark when checked, but leaving as visual placeholder */}
+                </div>
+                <span className="text-sm text-gray-400">
+                  I agree to the terms and conditions
+                </span>
               </div>
-            </div>
 
-            <div className="pt-6">
+              {/* Submit Button */}
               <button
                 type="submit"
-                className="btn-gold w-full py-5 text-lg flex items-center justify-center space-x-3"
+                className="w-full bg-luxury-gold text-luxury-black font-semibold py-4 rounded-xl flex items-center justify-center space-x-3 hover:bg-opacity-90 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-luxury-gold/20"
               >
-                <MessageCircle className="w-6 h-6" />
-                <span>Confirm via WhatsApp</span>
+                <MessageCircle className="w-5 h-5" />
+                <span>Book Appointment</span>
               </button>
-              <p className="text-center text-gray-500 text-xs mt-6 uppercase tracking-widest">
+
+              <p className="text-center text-gray-500 text-xs uppercase tracking-widest">
                 No payment required now. Pay at the salon after your service.
               </p>
-            </div>
-          </form>
-        </motion.div>
+            </form>
+          </div>
+        </div>
+
+        {/* Branch Locations */}
+        <div className="mt-20">
+          <h2 className="text-3xl font-serif text-white text-center mb-12">
+            Visit Any of Our 3 Locations
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              {
+                name: 'Touch & Glow - Branch 1',
+                address:
+                  'Regency lane Gate 3, Amber Tower, Sarkhej Rd, near Gulzar park, Juhapura, Ahmedabad, Gujarat 380055',
+                phone: '+91 99135 46386',
+                email: 'branch1@touchandglow.com',
+              },
+              {
+                name: 'Touch & Glow - Branch 2',
+                address:
+                  'GF-18, Block-A, Seventh Heaven, opp. Al Burooj, Ahmedabad, Gujarat 380055',
+                phone: '+91 99135 46386',
+                email: 'branch2@touchandglow.com',
+              },
+              {
+                name: 'Touch & Glow - Branch 3',
+                address:
+                  'Shop no 06, ALIF APARTMENT, Sarkhej Makarba Rd, Makarba, Ahmedabad, Gujarat 382210',
+                phone: '+91 99135 46386',
+                email: 'branch3@touchandglow.com',
+              },
+            ].map((branch, idx) => (
+              <div
+                key={idx}
+                className={`glass-card p-6 hover:scale-105 hover:shadow-2xl transition-all duration-500 delay-${idx * 100} ${
+                  mounted
+                    ? 'opacity-100 translate-y-0'
+                    : 'opacity-0 translate-y-4'
+                }`}
+                style={{ transitionDelay: `${idx * 100 + 300}ms` }}
+              >
+                <h3 className="text-xl font-serif text-white mb-2">
+                  {branch.name}
+                </h3>
+                <p className="text-gray-400 text-sm mb-4">{branch.address}</p>
+                <p className="text-gray-400 text-sm flex items-center">
+                  <Phone className="w-4 h-4 mr-2 text-luxury-gold" />
+                  {branch.phone}
+                </p>
+                <p className="text-gray-400 text-sm flex items-center mt-2">
+                  <Mail className="w-4 h-4 mr-2 text-luxury-gold" />
+                  {branch.email}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );
 };
 
-export default Booking;
+export default ContactPage;
