@@ -18,10 +18,6 @@ app.use("/api/appointments", appointmentRouter);
 app.use("/api", callRouter);
 app.use("/twilio",wabhoke);
 
-// ⭐ React build serve (frontend/dist)
-const __dirname = path.resolve();
-const frontendPath = path.join(__dirname, "../frontend/dist");
-
 
 const PORT = process.env.PORT || 4001;
 app.listen(PORT, () => {
