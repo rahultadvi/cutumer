@@ -326,18 +326,25 @@ const ContactPage: React.FC = () => {
                 </div>
 
                 {/* Submit Button - disabled if not agreed */}
-                <button
-                  type="submit"
-                  disabled={!agreed}
-                  className={`w-full font-semibold py-4 rounded-xl flex items-center justify-center space-x-3 transition-all duration-300 shadow-lg ${
-                    agreed
-                      ? 'bg-luxury-gold text-luxury-black hover:bg-opacity-90 hover:scale-[1.02] active:scale-[0.98] hover:shadow-xl hover:shadow-luxury-gold/20'
-                      : 'bg-gray-600 text-gray-300 cursor-not-allowed opacity-60'
-                  }`}
-                >
-                  <MessageCircle className="w-5 h-5" />
-                  <span>Book Appointment</span>
-                </button>
+          {/* Submit Button - production level with full animations */}
+<button
+  type="submit"
+  disabled={!agreed}
+  className={`
+    w-full font-semibold py-4 rounded-xl
+    flex items-center justify-center space-x-3
+    transition-all duration-300 ease-out
+    shadow-lg focus:outline-none focus:ring-2 focus:ring-luxury-gold focus:ring-offset-2 focus:ring-offset-luxury-black
+    ${
+      agreed
+        ? 'bg-luxury-gold text-luxury-black hover:bg-opacity-90 hover:scale-[1.02] active:scale-[0.98] hover:shadow-xl hover:shadow-luxury-gold/30 hover:border-luxury-gold/50 border border-transparent'
+        : 'bg-gray-600 text-gray-300 cursor-not-allowed opacity-60 border border-gray-500/30'
+    }
+  `}
+>
+  <MessageCircle className="w-5 h-5 transition-transform group-hover:rotate-12" />
+  <span>Book Appointment</span>
+</button>
 
                 {/* Payment note */}
                 <p className="text-center text-gray-500 text-xs uppercase tracking-widest">
