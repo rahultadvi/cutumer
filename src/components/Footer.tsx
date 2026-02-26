@@ -96,7 +96,7 @@ const Footer: React.FC = () => {
           {/* Credit Section */}
           <div className="mt-16 pt-8 border-t border-white/5 text-center">
             <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-500">
-              Designed & Developed By <span className="text-luxury-gold">Softgenix Infotech</span>
+              Designed & Developed By <span className="text-luxury-gold">zantatech solutions</span>
             </p>
           </div>
         </div>
