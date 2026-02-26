@@ -466,7 +466,7 @@ const ContactPage: React.FC = () => {
             </div>
           </div>
           <div className="mt-12 pt-8 border-t border-white/10 text-center text-gray-500 text-sm">
-            Designed & Developed By Softgenix Infotech
+            Designed & Developed By Zantatech Solutions
           </div>
         </div>
       </footer>
